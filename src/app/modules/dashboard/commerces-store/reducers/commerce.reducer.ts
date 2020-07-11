@@ -44,16 +44,18 @@ const commerceReducer = createReducer(
     ...state,
     pending: true,
   })),
-  on(CommerceActions.getLayersSuccess, (state, commerces) => ({
+  on(CommerceActions.getLayersSuccess, (state, { layers }) => ({
     ...state,
+    layers,
     pending: false,
   })),
   on(CommerceActions.getStats, state => ({
     ...state,
     pending: true,
   })),
-  on(CommerceActions.getStatsSuccess, (state, commerces) => ({
+  on(CommerceActions.getStatsSuccess, (state, { stats }) => ({
     ...state,
+    stats,
     pending: false,
   })),
 );
