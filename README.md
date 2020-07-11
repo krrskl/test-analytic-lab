@@ -6,6 +6,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
+## CI/CD
+
+Implementation of Github Actions to deploy the application in Firebase Hosting.
+
 ## Dependencies
 
 ### Application state management
@@ -33,5 +37,16 @@ Run `ng s -o` for a dev server.
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Screnshots
+
+> Store
+> ![Store](screenshots/store.png?raw=true "Store")
+
+> Web
+> ![Web](screenshots/web.png?raw=true "Web application")
+
+> CI/CD Github Actions
+> ![CI/CD Github Actions](screenshots/ci_cd.png?raw=true "CI/CD Github Actions")
 
 Made whit ❤️ by [Rubén Carrascal](https://krrskl.github.io/)
