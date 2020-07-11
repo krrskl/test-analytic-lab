@@ -1,7 +1,7 @@
 name: CI/CD Firebase Hosting.
 
 on:
-  pull_request:
+  push:
     branches:
       - release/production
 
@@ -13,9 +13,6 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "12"
       - run: npm install
       - run: npm build:prod
 
