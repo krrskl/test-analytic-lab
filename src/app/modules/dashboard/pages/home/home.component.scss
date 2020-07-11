@@ -16,3 +16,13 @@
   max-height: 50vh;
   overflow-y: auto;
 }
+
+@media (max-width: 769px) {
+  .main {
+    overflow-y: auto;
+    height: auto;
+    .map {
+      height: 50vh;
+    }
+  }
+}
