@@ -1,3 +1,5 @@
+import { Layer } from '@core/models/Layer.model';
+import { Commerce } from '@core/models/Commerce.model';
 import { Statistic } from '@core/models/Stats.model';
 import { Label } from 'ng2-charts';
 import { ChartDataSets } from 'chart.js';
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 import { MapService } from '@core/services/map.service';
 import { CommerceAppState } from '../../commerces-store/reducers/commerce.reducer';
 import { CommerceActions } from '../../commerces-store/actions';
-import { selectCommercesPending } from '../../commerces-store/selectors/commerce.selectors';
+import {
+  selectCommercesPending,
+  selectCommerces,
+} from '../../commerces-store/selectors/commerce.selectors';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +23,15 @@ export class HomeComponent implements OnInit {
   public loading$: Observable<boolean> = this.store$.pipe(
     select(selectCommercesPending),
   );
+
+  public commerces$: Observable<Commerce[]> = this.store$.pipe(
+    select(selectCommerces),
+  );
+
   chartData: ChartDataSets[];
   chartLabels: Label[] = [];
   private stats: Statistic[] = [];
+  private layers: Layer[] = [];
 
   constructor(
     private map: MapService,
@@ -31,8 +42,9 @@ export class HomeComponent implements OnInit {
     this.map.buildMap();
 
     this.store$.select('commerces').subscribe(({ layers, stats }) => {
-      if (layers && layers.length !== 0) {
+      if (layers && layers.length !== 0 && this.layers !== layers) {
         this.map.addPoints(layers);
+        this.layers = layers;
       }
 
       if (stats && stats.length !== 0 && this.stats !== stats) {
@@ -50,10 +62,10 @@ export class HomeComponent implements OnInit {
 
     this.map.statusMap.subscribe(state => {
       if (state) {
+        this.store$.dispatch(CommerceActions.getCommerces());
         this.store$.dispatch(CommerceActions.getLayers());
+        this.store$.dispatch(CommerceActions.getStats());
       }
     });
-
-    this.store$.dispatch(CommerceActions.getStats());
   }
 }

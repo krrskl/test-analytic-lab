@@ -26,7 +26,7 @@ export const initialState: CommerceState = {
   commerces: [],
   layers: [],
   stats: [],
-  pending: false,
+  pending: true,
 };
 
 const commerceReducer = createReducer(

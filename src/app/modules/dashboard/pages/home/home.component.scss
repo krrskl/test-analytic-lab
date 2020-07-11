@@ -1,3 +1,18 @@
 .main {
   height: 100vh;
+  overflow: hidden;
+}
+
+.commerces {
+  .card-body {
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .card-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  max-height: 50vh;
+  overflow-y: auto;
 }

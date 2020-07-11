@@ -16,3 +16,8 @@ export const selectCommercesPending = createSelector(
   selectCommercesState,
   (state: CommerceState) => state.pending,
 );
+
+export const selectCommerces = createSelector(
+  selectCommercesState,
+  (state: CommerceState) => state.commerces,
+);
