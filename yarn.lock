@@ -1078,7 +1078,7 @@
     semver "6.3.0"
     semver-intersect "1.4.0"
 
-"@types/chart.js@^2.7.48":
+"@types/chart.js@^2.7.48", "@types/chart.js@^2.9.22":
   version "2.9.22"
   resolved "https://registry.yarnpkg.com/@types/chart.js/-/chart.js-2.9.22.tgz#e52fd922aced217867445c2913b68ce98b1c2b5f"
   integrity sha512-CneMxwh2T5fyMpXE5fuprTTmFtlLyZUFq1A3laUrCgOblDzupgiohrFg3jjsTIrqRI5K4qLZdrLN4zT9/MY5Dw==
