@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ComponentsModule } from '@core/components/components.module';
 
 /* Components */
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -23,6 +24,7 @@ import { CommerceEffects } from './commerces-store/effects';
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    ComponentsModule,
     StoreModule.forFeature(commerceFeatureKey, reducerCommerce),
     EffectsModule.forFeature([CommerceEffects]),
   ],

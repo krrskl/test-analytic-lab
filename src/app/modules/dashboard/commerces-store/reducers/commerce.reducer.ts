@@ -1,13 +1,13 @@
 /* Ngrx */
 import { createReducer, on, Action } from '@ngrx/store';
 /* Models */
-import { Commerce } from '../../../../core/models/Commerce.model';
-import { Layer } from '../../../../core/models/Layer.model';
-import { Statistic } from '../../../../core/models/Stats.model';
+import { Commerce } from '@core/models/Commerce.model';
+import { Layer } from '@core/models/Layer.model';
+import { Statistic } from '@core/models/Stats.model';
 /* Actions */
 import { CommerceActions } from '../actions';
 /* Reducers */
-import { AppState } from './../../../../core/store/reducers/app.reducers';
+import { AppState } from '@core/store/reducers/app.reducers';
 
 export const commerceFeatureKey = 'commerces';
 
@@ -44,16 +44,18 @@ const commerceReducer = createReducer(
     ...state,
     pending: true,
   })),
-  on(CommerceActions.getLayersSuccess, (state, commerces) => ({
+  on(CommerceActions.getLayersSuccess, (state, { layers }) => ({
     ...state,
+    layers,
     pending: false,
   })),
   on(CommerceActions.getStats, state => ({
     ...state,
     pending: true,
   })),
-  on(CommerceActions.getStatsSuccess, (state, commerces) => ({
+  on(CommerceActions.getStatsSuccess, (state, { stats }) => ({
     ...state,
+    stats,
     pending: false,
   })),
 );
