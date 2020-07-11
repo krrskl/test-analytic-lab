@@ -1,26 +1,46 @@
-name: deploy_to_firebase_hosting
+name: CI/CD Firebase Hosting.
 
 on:
-  push:
-    branches:
-      - release/production
-
   pull_request:
     branches:
       - release/production
 
 jobs:
-  deploy_to_firebase_hosting:
+  buid:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
 
-      - name: GitHub Action for Firebase
-        uses: w9jds/firebase-action@v1.5.0
-
+      - uses: actions/setup-node@v2
         with:
-          args: deploy --only hosting:tests
+          node-version: "12"
+      - run: npm install
+      - run: npm build:prod
+
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to Firebase Hosting
+        uses: w9jds/firebase-action@v1.5.0
+        with:
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
