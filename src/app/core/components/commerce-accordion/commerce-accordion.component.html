@@ -1,0 +1,16 @@
+<div class="card mb-2">
+  <div class="card-header d-flex align-items-center" (click)="toggleAccordion()">
+    <div>
+      {{ title }}
+    </div>
+    <div class="ml-auto">
+      <button class="btn">
+        <i [class]="'fas ' + icon"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body" #cc>
+    <ng-content></ng-content>
+  </div>
+</div>
