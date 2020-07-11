@@ -1,10 +1,6 @@
 name: deploy_to_firebase_hosting
 
 on:
-  push:
-    branches:
-      - release/production
-
   pull_request:
     branches:
       - release/production
