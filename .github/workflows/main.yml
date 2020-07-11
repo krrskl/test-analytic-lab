@@ -6,7 +6,7 @@ on:
       - release/production
 
 jobs:
-  buid:
+  build:
     runs-on: ubuntu-latest
 
     steps:
