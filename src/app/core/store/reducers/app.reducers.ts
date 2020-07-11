@@ -8,7 +8,7 @@ import {
 } from '@ngrx/store';
 /* Reducers */
 /* Environment */
-import { environment } from './../../../../environments/environment';
+import { environment } from '@env/environment';
 
 export interface AppState {}
 

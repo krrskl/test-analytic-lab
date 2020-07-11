@@ -12,13 +12,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
 /* Environments */
-import { environment } from 'src/environments/environment';
+import { environment } from '@env/environment';
 
 /* Reducers */
-import { appReducers, metaReducers } from './core/store/reducers/app.reducers';
+import { appReducers, metaReducers } from '@core/store/reducers/app.reducers';
 
 /* Effects */
-import { appEffects } from './core/store/effects/app.effects';
+import { appEffects } from '@core/store/effects/app.effects';
 
 /* Components */
 import { AppComponent } from './app.component';

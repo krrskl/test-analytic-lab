@@ -1,9 +1,9 @@
 /* Ngrx */
 import { props, createAction } from '@ngrx/store';
 /* Models */
-import { Commerce } from '../../../../core/models/Commerce.model';
-import { Layer } from 'src/app/core/models/Layer.model';
-import { Statistic } from 'src/app/core/models/Stats.model';
+import { Commerce } from '@core/models/Commerce.model';
+import { Layer } from '@core/models/Layer.model';
+import { Statistic } from '@core/models/Stats.model';
 
 const CommerceActionsTypes = {
   GET_COMMERCES: '[COMMERCE] Get commerces',
